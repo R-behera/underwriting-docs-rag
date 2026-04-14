@@ -1,0 +1,16 @@
+
+# Runbook
+
+## Local Run
+- Install dependencies with `pip install -r requirements.txt`
+- Seed mock outputs with `python scripts/bootstrap_data.py`
+- Start the API with `uvicorn src.app.main:app --reload`
+
+## Deployment
+- Build the image with `docker build -t underwriting-docs-rag:latest .`
+- Run via `docker compose up --build`
+
+## Monitoring
+- Use `/health` for availability
+- Use `/project` for version and metadata checks
+- Extend API logging and request tracing for production usage

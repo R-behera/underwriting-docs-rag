@@ -1,0 +1,46 @@
+{
+  "slug": "underwriting-docs-rag",
+  "title": "Underwriting Docs RAG",
+  "project_type": "rag",
+  "domain": "Insurtech",
+  "summary": "Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.",
+  "tags": [
+    "insurance",
+    "rag",
+    "docs"
+  ],
+  "accent": "#3d5a80",
+  "dashboard_metrics": [
+    {
+      "label": "Grounded Recall",
+      "value": "81%",
+      "delta": "+4.6%"
+    },
+    {
+      "label": "Citation Coverage",
+      "value": "83%",
+      "delta": "+3.1%"
+    },
+    {
+      "label": "Latency",
+      "value": "133ms",
+      "delta": "-18ms"
+    }
+  ],
+  "sample_features": {
+    "query": "Summarize the highest priority risk and recommended next step.",
+    "audience": "analytics"
+  },
+  "sample_metrics": {
+    "acquisition": 24.1,
+    "activation": 28.5,
+    "retention": 43.2,
+    "revenue": 63.7
+  },
+  "knowledge_base": [
+    "Underwriting Docs RAG is positioned as a Insurtech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.",
+    "The primary value proposition is: Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.",
+    "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
+    "Typical stakeholders include analytics, operations, product, and leadership teams working on insurance, rag, docs."
+  ]
+}
