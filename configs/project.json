@@ -9,7 +9,8 @@
     "rag",
     "docs"
   ],
-  "accent": "#3d5a80",
+  "accent": "#8cc82c",
+  "secondary_accent": "#2c6ba9",
   "dashboard_metrics": [
     {
       "label": "Grounded Recall",
@@ -42,5 +43,52 @@
     "The primary value proposition is: Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.",
     "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.",
     "Typical stakeholders include analytics, operations, product, and leadership teams working on insurance, rag, docs."
+  ],
+  "app_archetype": "navigator",
+  "ui_profile": {
+    "layout": "console",
+    "surface": "paper",
+    "font_stack": "\"IBM Plex Sans\", \"Segoe UI\", sans-serif",
+    "radius": 23,
+    "shadow": 61,
+    "eyebrow_style": "outline",
+    "module_columns": 2,
+    "hero_align": "split",
+    "headline_mode": "compact"
+  },
+  "app_modules": [
+    {
+      "label": "Query 01",
+      "title": "Grounded Question",
+      "description": "Ask a domain question and retrieve the most relevant context from the local knowledge base.",
+      "endpoint": "/query",
+      "input_mode": "text",
+      "cta": "Search Context",
+      "prefill": "What is the top priority recommendation for Underwriting Docs RAG?",
+      "hint": "Grounded answer and supporting contexts will appear here.",
+      "span": "wide"
+    },
+    {
+      "label": "Query 02",
+      "title": "Retrieval Quality Review",
+      "description": "Compare retrieval-side metrics against a baseline before changing prompt or chunking strategy.",
+      "endpoint": "/analyze",
+      "input_mode": "json",
+      "cta": "Review Quality",
+      "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 24.1,\n    \"activation\": 28.5,\n    \"retention\": 43.2,\n    \"revenue\": 63.7\n  },\n  \"baseline\": {\n    \"acquisition\": 22.17,\n    \"activation\": 26.22,\n    \"retention\": 39.74,\n    \"revenue\": 58.6\n  }\n}",
+      "hint": "Quality delta summary will appear here.",
+      "span": "normal"
+    },
+    {
+      "label": "Query 03",
+      "title": "Response Playbook",
+      "description": "Generate a recommended follow-up workflow grounded in the project context.",
+      "endpoint": "/recommend",
+      "input_mode": "json",
+      "cta": "Build Response",
+      "prefill": "{\n  \"prompt\": \"Recommend the next best action for Underwriting Docs RAG.\",\n  \"features\": {\n    \"query\": \"Summarize the highest priority risk and recommended next step.\",\n    \"audience\": \"analytics\"\n  },\n  \"metrics\": {\n    \"acquisition\": 24.1,\n    \"activation\": 28.5,\n    \"retention\": 43.2,\n    \"revenue\": 63.7\n  }\n}",
+      "hint": "Recommended workflow steps will appear here.",
+      "span": "normal"
+    }
   ]
 }

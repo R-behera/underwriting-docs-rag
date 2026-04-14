@@ -6,13 +6,12 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>Underwriting Docs RAG</title>
           <link rel="stylesheet" href="./styles.css">
-          <style>:root { --accent: #3d5a80; }</style>
         </head>
-        <body>
-          <div class="page">
+        <body class="surface-paper">
+          <div class="page layout-console eyebrow-outline headline-compact modules-2 hero-align-split">
             <section class="hero">
               <div class="panel hero-copy">
-                <span class="eyebrow">Grounded Retrieval App</span>
+                <span class="eyebrow" data-health>Grounded Navigator</span>
                 <h1 id="project-title">Underwriting Docs RAG</h1>
                 <p id="project-summary" class="lead">Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.</p>
                 <ul id="project-tags" class="tag-list">
@@ -26,55 +25,79 @@
 <article class='card'><span>Latency</span><strong>133ms</strong><em>-18ms</em></article>
                 </div>
                 <div class="mini-grid">
-                  <article class='mini-card'><span>Project Type</span><strong>RAG</strong></article><article class='mini-card'><span>Domain</span><strong>Insurtech</strong></article><article class='mini-card'><span>Interface</span><strong>FastAPI + Browser UI</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
+                  <article class='mini-card'><span>Project Type</span><strong>RAG</strong></article><article class='mini-card'><span>Domain</span><strong>Insurtech</strong></article><article class='mini-card'><span>Application</span><strong>Grounded Navigator</strong></article><article class='mini-card'><span>Deployment</span><strong>Docker + CI</strong></article>
                 </div>
               </div>
             </section>
             <section class="app-grid">
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 01</span>
-                  <h2>Retrieval Inputs</h2>
-                  <p>Use the feature payload to simulate request enrichment or ranking inputs.</p>
-                </div>
-                <textarea id="score-input"></textarea>
-                <div class="button-row">
-                  <button id="run-score">Run Scoring</button>
-                  <button id="load-defaults" class="secondary" type="button">Reload Defaults</button>
-                </div>
-                <pre id="score-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 02</span>
-                  <h2>Retrieval Review</h2>
-                  <p>Compare retrieval metrics or answer quality signals against a baseline.</p>
-                </div>
-                <textarea id="analyze-input"></textarea>
-                <div class="button-row">
-                  <button id="run-analyze">Run Analysis</button>
-                </div>
-                <pre id="analyze-output"></pre>
-              </article>
-              <article class="panel module">
-                <div class="module-header">
-                  <span>Application 03</span>
-                  <h2>Grounded Query</h2>
-                  <p>Run a grounded question across the local knowledge base and inspect contexts.</p>
-                </div>
-                <textarea id="query-input" class="query-input"></textarea>
-                <div class="button-row">
-                  <button id="run-query">Run Query</button>
-                </div>
-                <pre id="query-output"></pre>
-              </article>
+              <article class="panel module js-module span-wide">
+  <div class="module-header">
+    <span>Query 01</span>
+    <h2>Grounded Question</h2>
+    <p>Ask a domain question and retrieve the most relevant context from the local knowledge base.</p>
+  </div>
+  <textarea class="js-input module-input-text">What is the top priority recommendation for Underwriting Docs RAG?</textarea>
+  <div class="button-row">
+    <button class="js-run" data-endpoint="/query" data-input-mode="text">Search Context</button>
+  </div>
+  <pre class="js-output">Grounded answer and supporting contexts will appear here.</pre>
+</article>
+<article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Query 02</span>
+            <h2>Retrieval Quality Review</h2>
+            <p>Compare retrieval-side metrics against a baseline before changing prompt or chunking strategy.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 24.1,
+    &quot;activation&quot;: 28.5,
+    &quot;retention&quot;: 43.2,
+    &quot;revenue&quot;: 63.7
+  },
+  &quot;baseline&quot;: {
+    &quot;acquisition&quot;: 22.17,
+    &quot;activation&quot;: 26.22,
+    &quot;retention&quot;: 39.74,
+    &quot;revenue&quot;: 58.6
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/analyze" data-input-mode="json">Review Quality</button>
+          </div>
+          <pre class="js-output">Quality delta summary will appear here.</pre>
+        </article>
+<article class="panel module js-module span-normal">
+          <div class="module-header">
+            <span>Query 03</span>
+            <h2>Response Playbook</h2>
+            <p>Generate a recommended follow-up workflow grounded in the project context.</p>
+          </div>
+          <textarea class="js-input">{
+  &quot;prompt&quot;: &quot;Recommend the next best action for Underwriting Docs RAG.&quot;,
+  &quot;features&quot;: {
+    &quot;query&quot;: &quot;Summarize the highest priority risk and recommended next step.&quot;,
+    &quot;audience&quot;: &quot;analytics&quot;
+  },
+  &quot;metrics&quot;: {
+    &quot;acquisition&quot;: 24.1,
+    &quot;activation&quot;: 28.5,
+    &quot;retention&quot;: 43.2,
+    &quot;revenue&quot;: 63.7
+  }
+}</textarea>
+          <div class="button-row">
+            <button class="js-run" data-endpoint="/recommend" data-input-mode="json">Build Response</button>
+          </div>
+          <pre class="js-output">Recommended workflow steps will appear here.</pre>
+        </article>
             </section>
             <footer class="footer">
-              <span>Data Science + AI + LLM + RAG Portfolio</span>
+              <span>Insurtech • RAG • Grounded Navigator</span>
               <span>underwriting-docs-rag</span>
             </footer>
           </div>
-          <script id="bootstrap-data" type="application/json">{"project": {"slug": "underwriting-docs-rag", "title": "Underwriting Docs RAG", "project_type": "rag", "domain": "Insurtech", "summary": "Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.", "tags": ["insurance", "rag", "docs"]}, "sample_features": {"query": "Summarize the highest priority risk and recommended next step.", "audience": "analytics"}, "sample_metrics": {"acquisition": 24.1, "activation": 28.5, "retention": 43.2, "revenue": 63.7}, "sample_query": "What is the top priority recommendation?", "knowledge_base": ["Underwriting Docs RAG is positioned as a Insurtech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on insurance, rag, docs."], "dashboard_metrics": [{"label": "Grounded Recall", "value": "81%", "delta": "+4.6%"}, {"label": "Citation Coverage", "value": "83%", "delta": "+3.1%"}, {"label": "Latency", "value": "133ms", "delta": "-18ms"}]}</script>
+          <script id="bootstrap-data" type="application/json">{"project": {"slug": "underwriting-docs-rag", "title": "Underwriting Docs RAG", "project_type": "rag", "domain": "Insurtech", "summary": "Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.", "tags": ["insurance", "rag", "docs"]}, "app_archetype": "navigator", "ui_profile": {"layout": "console", "surface": "paper", "font_stack": "\"IBM Plex Sans\", \"Segoe UI\", sans-serif", "radius": 23, "shadow": 61, "eyebrow_style": "outline", "module_columns": 2, "hero_align": "split", "headline_mode": "compact"}, "app_modules": [{"label": "Query 01", "title": "Grounded Question", "description": "Ask a domain question and retrieve the most relevant context from the local knowledge base.", "endpoint": "/query", "input_mode": "text", "cta": "Search Context", "prefill": "What is the top priority recommendation for Underwriting Docs RAG?", "hint": "Grounded answer and supporting contexts will appear here.", "span": "wide"}, {"label": "Query 02", "title": "Retrieval Quality Review", "description": "Compare retrieval-side metrics against a baseline before changing prompt or chunking strategy.", "endpoint": "/analyze", "input_mode": "json", "cta": "Review Quality", "prefill": "{\n  \"metrics\": {\n    \"acquisition\": 24.1,\n    \"activation\": 28.5,\n    \"retention\": 43.2,\n    \"revenue\": 63.7\n  },\n  \"baseline\": {\n    \"acquisition\": 22.17,\n    \"activation\": 26.22,\n    \"retention\": 39.74,\n    \"revenue\": 58.6\n  }\n}", "hint": "Quality delta summary will appear here.", "span": "normal"}, {"label": "Query 03", "title": "Response Playbook", "description": "Generate a recommended follow-up workflow grounded in the project context.", "endpoint": "/recommend", "input_mode": "json", "cta": "Build Response", "prefill": "{\n  \"prompt\": \"Recommend the next best action for Underwriting Docs RAG.\",\n  \"features\": {\n    \"query\": \"Summarize the highest priority risk and recommended next step.\",\n    \"audience\": \"analytics\"\n  },\n  \"metrics\": {\n    \"acquisition\": 24.1,\n    \"activation\": 28.5,\n    \"retention\": 43.2,\n    \"revenue\": 63.7\n  }\n}", "hint": "Recommended workflow steps will appear here.", "span": "normal"}], "sample_features": {"query": "Summarize the highest priority risk and recommended next step.", "audience": "analytics"}, "sample_metrics": {"acquisition": 24.1, "activation": 28.5, "retention": 43.2, "revenue": 63.7}, "knowledge_base": ["Underwriting Docs RAG is positioned as a Insurtech starter that emphasizes fast iteration, clear documentation, and production-friendly interfaces.", "The primary value proposition is: Search underwriting manuals, exceptions, and policy notes with grounded answers for reviewers.", "Recommended operating model: ship a small API, add observability, validate outputs with stakeholder review, and monitor the top business KPI every week.", "Typical stakeholders include analytics, operations, product, and leadership teams working on insurance, rag, docs."], "dashboard_metrics": [{"label": "Grounded Recall", "value": "81%", "delta": "+4.6%"}, {"label": "Citation Coverage", "value": "83%", "delta": "+3.1%"}, {"label": "Latency", "value": "133ms", "delta": "-18ms"}]}</script>
           <script src="./app.js"></script>
         </body>
         </html>
